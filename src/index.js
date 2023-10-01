@@ -1,17 +1,56 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+//const title = ;
+//const author = "Joseph Murphy";
+//const img = "";
+const books = [
+  {
+    author: "Joseph Murphy",
+    title: "The power of your subconscious mind",
+    img: "https://m.media-amazon.com/images/I/61k1giyuJ5L._SY425_.jpg",
+    id: 1,
+  },
+  {
+    author: "James Clear",
+    title: "Atomic Habits",
+    img: "https://m.media-amazon.com/images/I/91bYsX41DVL._SY425_.jpg",
+    id: 2,
+  },
+  {
+    author: "Morgan Housel",
+    title: "The Psychology Of Money",
+    img: "https://m.media-amazon.com/images/I/41r6F2LRf8L._SY445_SX342_.jpg",
+    id: 3,
+  },
+  {
+    author: "Napoleon Hill",
+    title: "THINK AND GROW RICH ",
+    img: "https://m.media-amazon.com/images/I/41DmBeq8oIL._SY445_SX342_.jpg",
+    id: 4,
+  },
+];
+function BookList() {
+  return (
+    <section className="bookList">
+      {books.map((book) => {
+        const { img, title, author, id } = book;
+        return <Book img={img} title={title} author={author} key={id} />;
+      })}
+    </section>
+  );
+}
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+const Book = (props) => {
+  const { img, title, author } = props;
+  return (
+    <article className="book">
+      <img src={img} alt={title} />
+      <h2>{title} </h2>
+      <h4>{author}</h4>
+    </article>
+  );
+};
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const root = ReactDOM.createRoot(document.getElementById(`root`));
+root.render(<BookList />);
