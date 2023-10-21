@@ -33,6 +33,7 @@ const books = [
 function BookList() {
   return (
     <section className="bookList">
+      <EventsExample />
       {books.map((book) => {
         return <Book {...book} key={book.id} />;
       })}
@@ -48,6 +49,28 @@ const Book = (props) => {
       <h2>{title} </h2>
       <h4>{author}</h4>
     </article>
+  );
+};
+const EventsExample = () => {
+  const handleFormInput = () => {
+    console.log("handle form input");
+  };
+  const handleButtonClick = () => {
+    alert("button is clicked");
+  };
+  return (
+    <section>
+      <form>
+        <h2>Typical form</h2>
+        <input
+          type="text"
+          name="example"
+          onClick={handleFormInput}
+          style={{ margin: "1rem 0" }}
+        />
+      </form>
+      <button onClick={handleButtonClick}>Click me</button>
+    </section>
   );
 };
 
