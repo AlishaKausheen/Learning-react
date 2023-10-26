@@ -43,10 +43,14 @@ function BookList() {
 
 const Book = (props) => {
   const { img, title, author } = props;
+  const displayTitle = ()=>{
+    console.log(title);
+  }
   return (
     <article className="book">
       <img src={img} alt={title} />
       <h2>{title} </h2>
+      <button onClick={displayTitle}>{ title}</button>
       <h4>{author}</h4>
     </article>
   );
@@ -60,9 +64,13 @@ const EventsExample = () => {
   const handleButtonClick = () => {
     alert("button is clicked");
   };
+  const handleFormSubmission = (e) => {
+    console.log("Form Submitted");
+    e.preventDefault();
+  }
   return (
     <section>
-      <form>
+      <form onSubmit={handleFormSubmission}>
         <h2>Typical form</h2>
         <input
           type="text"
@@ -70,8 +78,9 @@ const EventsExample = () => {
           onClick={handleFormInput}
           style={{ margin: "1rem 0" }}
         />
+        <button onClick={handleButtonClick} type="button">Click me</button>
       </form>
-      <button onClick={handleButtonClick}>Click me</button>
+      <button onClick={handleButtonClick} type="submit">Submit</button>
     </section>
   );
 };
