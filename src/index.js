@@ -52,8 +52,10 @@ const Book = (props) => {
   );
 };
 const EventsExample = () => {
-  const handleFormInput = () => {
+  const handleFormInput = (e) => {
     console.log("handle form input");
+    console.log(e.target.name);
+    
   };
   const handleButtonClick = () => {
     alert("button is clicked");
