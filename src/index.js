@@ -9,13 +9,16 @@ import Book from "./Book";
 
 function BookList() {
   return (
+    <>
+      <h1>Amazon Best Seller</h1>
     <section className="bookList">
 
       {books.map((book,index) => {
         return <Book {...book} key={book.id} number={index } />;
       })}
       
-    </section>
+      </section>
+      </>
   );
 }
 
