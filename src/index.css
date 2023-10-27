@@ -27,6 +27,7 @@ body {
     border-color: #161414;
     padding: 1rem;
     text-align: center;
+    position: relative;
   }
 }
 .book img {
@@ -44,4 +45,16 @@ body {
 }
 .book p {
   margin: 1rem 0 0.5rem;
+}
+.number{
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border-top-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  background-color: red;
+  color: aliceblue;
+
 }

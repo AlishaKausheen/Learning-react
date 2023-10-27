@@ -10,9 +10,9 @@ import Book from "./Book";
 function BookList() {
   return (
     <section className="bookList">
-      <EventsExample/>
-      {books.map((book) => {
-        return <Book {...book} key={book.id}/>;
+
+      {books.map((book,index) => {
+        return <Book {...book} key={book.id} number={index } />;
       })}
       
     </section>
@@ -20,35 +20,7 @@ function BookList() {
 }
 
 
-const EventsExample = () => {
-  const handleFormInput = (e) => {
-    console.log("handle form input");
-    console.log(e.target.name);
-    
-  };
-  const handleButtonClick = () => {
-    alert("button is clicked");
-  };
-  const handleFormSubmission = (e) => {
-    console.log("Form Submitted");
-    e.preventDefault();
-  }
-  return (
-    <section>
-      <form onSubmit={handleFormSubmission}>
-        <h2>Typical form</h2>
-        <input
-          type="text"
-          name="example"
-          onClick={handleFormInput}
-          style={{ margin: "1rem 0" }}
-        />
-        <button onClick={handleButtonClick} type="button">Click me</button>
-      </form>
-      <button onClick={handleButtonClick} type="submit">Submit</button>
-    </section>
-  );
-};
+
 
 const root = ReactDOM.createRoot(document.getElementById(`root`));
 root.render(<BookList />);
